@@ -25,3 +25,9 @@
 ```
 https://draveness.me/whys-the-design-tcp-time-wait/
 ```
+### 内存分配
+- [ ] 内存区域
+- [ ] 内存管理单元
+- [ ] 内存组件
+- [ ] 内存分配原则
+- [ ] 总结
