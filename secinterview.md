@@ -36,6 +36,21 @@ https://draveness.me/whys-the-design-tcp-time-wait/
 - [ ] GMP 模型
 - [ ] channl 消息传递和时间通知
 - [ ] sync.pool 对象复用
+[sync.pool深度揭秘](https://www.cnblogs.com/qcrao-2018/p/12736031.html)
+```
+
+```
+- [ ] 逃逸分析
+```
+查看变量内存分配在栈还是堆，分配在栈上不需要经过GC当函数结束时直接回收，分配在堆上要经过GC回收。
+逃逸条件：
+1. 函数是否返回了引用的变量
+2. 变量的内存占用超过了栈的容量
+命令查看逃逸状态：
+go build -gcflags main.go
+go tool  cpmpile -s main.go
+[引用](https://www.cnblogs.com/shijingxiang/articles/12200355.html)
+```
 ### map和sync.map 区别使用
 - [ ] map
 - [ ]  sync.map
