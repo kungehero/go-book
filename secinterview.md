@@ -24,7 +24,19 @@
 ### time_wait和close_wait?
 ```
 https://draveness.me/whys-the-design-tcp-time-wait/
+- [ ] 出现的原因
 ```
+time_wait：主动断开tcp协议链接
+close_wait：被动断开tcp协议出现的
+```
+- [ ] 解决方案
+```
+/etc/sysctl.conf
+net.ipv4.tcp_tw_reuse = 1 表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；
+net.ipv4.tcp_tw_recycle = 1 表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭。
+net.ipv4.ip_local_port_range = 1024 65000 示用于向外连接的端口范围。缺省情况下很小：32768到61000，改为1024到65000。
+```
+- [ ] 具体案例
 ### 内存分配
 - [ ] 内存区域
 - [ ] 内存管理单元
@@ -36,11 +48,12 @@ https://draveness.me/whys-the-design-tcp-time-wait/
 - [ ] GMP 模型
 - [ ] channl 消息传递和时间通知
 - [ ] sync.pool 对象复用
-[sync.pool深度揭秘](https://www.cnblogs.com/qcrao-2018/p/12736031.html)
+  [sync.pool深度揭秘](https://www.cnblogs.com/qcrao-2018/p/12736031.html)
 ```
 
 ```
 - [ ] 逃逸分析
+  [内存逃逸](https://www.cnblogs.com/shijingxiang/articles/12200355.html)
 ```
 查看变量内存分配在栈还是堆，分配在栈上不需要经过GC当函数结束时直接回收，分配在堆上要经过GC回收。
 逃逸条件：
@@ -49,8 +62,11 @@ https://draveness.me/whys-the-design-tcp-time-wait/
 命令查看逃逸状态：
 go build -gcflags main.go
 go tool  cpmpile -s main.go
-[引用](https://www.cnblogs.com/shijingxiang/articles/12200355.html)
 ```
 ### map和sync.map 区别使用
 - [ ] map
 - [ ]  sync.map
+### bitmap bit向量/数组
+-  [ ] 是什么
+-  [ ] 做什么
+-  [ ] boolfilter 布隆过滤
