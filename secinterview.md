@@ -22,7 +22,6 @@
 物理内存（Physical memory）是相对于逻辑内存而言的。物理内存指通过物理内存条而获得的内存空间，而逻辑内存则是指将硬盘的一块区域划分来作为内存。内存主要作用是在计算机运行时为操作系统和各种程序提供临时储存。常见的物理内存规格有256M、512M、1G、2G等，现如今随着计算机硬件的发展，已经出现4G、8G甚至更高容量的内存规格。当物理内存不足时，可以用虚拟内存代替。
 ```
 ### time_wait和close_wait?
-```
 https://draveness.me/whys-the-design-tcp-time-wait/
 - [ ] 出现的原因
 ```
@@ -50,7 +49,8 @@ net.ipv4.ip_local_port_range = 1024 65000 示用于向外连接的端口范围�
 - [ ] sync.pool 对象复用
   [sync.pool深度揭秘](https://www.cnblogs.com/qcrao-2018/p/12736031.html)
 ```
-
+避免频繁的创建对象，分配内存的速度超过gc释放内存的速度。
+使用的对象能够重复的使用
 ```
 - [ ] 逃逸分析
   [内存逃逸](https://www.cnblogs.com/shijingxiang/articles/12200355.html)
