@@ -4,4 +4,5 @@
    - [X] go 并发编程
    - [X] go 高级编程
 - [ ] redis和mysql
+   - [X] redis
 - [ ] 大神blog
