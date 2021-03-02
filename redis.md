@@ -2,13 +2,27 @@
    - [ ] 底层实现
    #### string
    ```
-   sds(简单动态字符串)
+   sds(简单动态字符串)：根部不同的对象类型选择不同的数据结构
+   整数类型：int
+   字符串<39字节：emstr
+   字符串>39字节：raw
    ```
    #### list
+   ```
+   ziplist+linklist
+   ziplist:压缩列表
+   超过512个key，或者key大于64个字节
+   linklist：双向链表
+   ```
    #### hash
    #### set
    #### zset
    - [ ] 使用场景
+   ### string
+   #### list
+   #### hash
+   #### set
+   #### zset
 ### 持久化存储
    - [ ] aof 
    - [ ] rds 不阻塞线程
