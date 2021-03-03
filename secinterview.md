@@ -81,3 +81,4 @@ go tool  cpmpile -s main.go
 包括一个很长的bit向量或数组和一系列随机映射的函数
 用于数据查找，防止数据库击穿
 ```
+### radis和mysql 缓存一致性
