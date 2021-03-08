@@ -18,13 +18,24 @@
  ### binlog和redo log
      - [ ] 记录时间
      ```
-     
+     bin-log:sql语句提交成功之后记录日志
+     redo-log:事务发起时就开始记录日志
      ```
      - [ ] 使用方式
      ```
+     bin-log: 一直产生新的binlog文件
+     redo-log:循环使用
      ```
      - [ ] 作用不同
      ```
+     bin-log:数据恢复，主从复制
+     redo-log:保证断电或crash之后能够恢复数据
+     ```
+     - [ ] 保证一致性
+     ```
+     两阶段提交的过程：
+     Prepare：
+     Commit：
      ```
 ### 性能调优
 ### 索引
