@@ -32,22 +32,22 @@
         ```
         - [ ] 主键(唯一的标识，不重复表中的某一条记录)
  ### binlog和redo log
-     - [ ] 记录时间
+   - [ ] 记录时间
      ```
      bin-log:sql语句提交成功之后记录日志
      redo-log:事务发起时就开始记录日志
      ```
-     - [ ] 使用方式
+   - [ ] 使用方式
      ```
      bin-log: 一直产生新的binlog文件
      redo-log:循环使用
      ```
-     - [ ] 作用不同
+   - [ ] 作用不同
      ```
      bin-log:数据恢复，主从复制
      redo-log:保证断电或crash之后能够恢复数据
      ```
-     - [ ] 保证一致性
+   - [ ] 保证一致性
      ```
      两阶段提交的过程：
      Prepare：先写redolog buffer，然后做一个准备标记，再将log buffer 中的数据刷新到磁盘
@@ -55,12 +55,12 @@
      只要binlog写成功，再次重启redolog就能恢复数据
      ```
 ### 性能调优
-    - [ ] show plist
-    - [ ] explain 
+   - [ ] show plist
+   - [ ] explain 
 ### 索引
 ###  锁
 ### log日志
-    - [ ] undo log
+   - [ ] undo log
     ```
     保证事务原子性操作的日志，记录sql操作语句相反的语句，用于恢复操作进行数据回滚！
     ```
