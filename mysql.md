@@ -64,3 +64,9 @@
     ```
     保证事务原子性操作的日志，记录sql操作语句相反的语句，用于恢复操作进行数据回滚！
     ```
+   - [ ] truncate和delete
+   ```
+   truncate 不能回滚 delete 可以回滚
+   truncate 清空表的自增it属性 delete 不清空id自增属性
+   ```
+ 
