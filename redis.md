@@ -5,6 +5,11 @@
    - [ ] 底层实现
    #### string
    ```
+   byte sds struct
+         free int// 剩余空间
+         len int// 占用的字节数
+         buf [] *ptr
+   }
    sds(简单动态字符串)：根部不同的对象类型选择不同的数据结构
    1. 获取字节长度的时间复杂度O(1)
    2. 根据len的长度进行与分配内存，不用频繁的分布内存
@@ -14,7 +19,13 @@
    字符串>39字节：raw
    ```
    #### list 
-   ```
+   ``` 
+   byte list struct{
+        pre *listnode
+        tail *listnode
+        len int
+        ....
+   }
    ziplist+linklist
    ziplist:压缩列表
    超过512个key，或者key大于64个字节
@@ -22,14 +33,48 @@
    ```
    #### hash
    ```
+   byte hash struct{
+         size int//哈希长度
+         used int//哈希已使用的个数
+         dict
+   }
+   
+   一个哈希节点对应一个键值对
+   加载因子：used/size
+   
+   rehash：渐进式扩缩容
+   扩容条件(增量扩容 2倍)：
+   1.加载因子在没有bgsave或者bgrewriteaof的情况下>大于 1
+   2.加载因子在besave或者bgrewriteaof的情况下>大于 0.5
+   缩容条件(等量缩容)：
+   加载因子小于<0.1情况下进行缩容处理
    ziplist+hashtable
    hashmap:相当于map 数组+双向链表(链式地址法解决哈希冲突，起始位置是随机的调用fastrand()函数，渐进式扩充)
    ```
    #### set
    ```
+   inset+hashtable
    
+   inset:
+   1.集合中所有的对象都为整数时(整数-类型可以升级，减小内存)
+   2.集合中的元素数量超过512
+   
+   type inset struct{
+        encoding uint
+        length uint
+        contents []int
+   }
    ```
    #### zset
+   ```
+   ziplist:
+   zbytes->ztail->zlen->entry1->entry2->...entryn->zlend
+ 
+   entry: previous_entry_length|encoding|content
+   
+   主要目的为了减少内存的占用
+   skiplist:
+   ```
    - [ ] 使用场景
    ### string
    #### list
