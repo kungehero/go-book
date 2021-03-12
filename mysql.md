@@ -97,3 +97,6 @@
    - [ ] long_query_time(设置超时时间)
    - [ ] log_queries_not_using_indexes(没有使用索引的语句)
    - [ ] mysqldumpslow工具进行查询
+### bin-log 二进制文件有几种格式
+    - [ ] statement
+    - [ ] row
