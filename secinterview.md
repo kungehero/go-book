@@ -42,7 +42,10 @@ net.ipv4.ip_local_port_range = 1024 65000 示用于向外连接的端口范围�
 - [ ] 内存组件
 - [ ] 内存分配原则
 - [ ] 总结
-- `https://zhuanlan.zhihu.com/p/59125443`
+ ```
+ https://zhuanlan.zhihu.com/p/59125443
+ https://zhuanlan.zhihu.com/p/225190602
+ ```
 ### 并发调度
 - [ ] GMP 模型
 - [ ] channl 消息传递和时间通知
